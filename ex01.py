@@ -7,8 +7,13 @@ def guessGame():
     count = 1
    
     while True:
-        guess = input("I am thinking of a number between 1 and 100. What do you think it is?")
-        if guess > number:
+        guess = raw_input("I am thinking of a number between 1 and 100. What do you think it is?")
+        guess = int(guess)
+        if type(guess) != int:
+            print "Please give us a real number, dummy."
+        elif guess > 100 or guess < 1:
+            print "Your number is not in the range!"
+        elif guess > number:
             print "Your guess is too high, try again!"
             count = count + 1
         elif guess < number:
