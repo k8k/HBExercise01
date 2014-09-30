@@ -5,9 +5,9 @@ print "Hi %s, thanks for playing our guessing game. " % name
 
 def guessGame():
 
-    number = random.randrange(1, 101)
+    number = random.randrange(1, 5)
     count = 1
-    
+
     while True:
 
         guess = raw_input("I am thinking of a number between 1 and 100. What do you think it is?")
