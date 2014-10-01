@@ -5,8 +5,9 @@ print "Hi %s, thanks for playing our guessing game. " % name
 
 def guessGame():
 
-    number = random.randrange(1, 5)
-    count = 1
+    number = random.randrange(1, 101)
+    count_current = 1
+    count_best = 1000
 
     while True:
 
@@ -21,16 +22,24 @@ def guessGame():
                 print "Your number is not in the range!"
             elif guess > number:
                 print "Your guess is too high, try again!"
-                count = count + 1
+                count_current = count_current + 1
             elif guess < number:
                 print "Your guess is too low, try again!"
-                count = count + 1
+                count_current = count_current + 1
             else:
-                print "Congratulations! You got it right! It took you", count, "times!"
+                print "Congratulations! You got it right! It took you", count_current, "times!"
+                if count_current < count_best:
+                    print "You have a new high score of", count_current
+                    count_current == count_best
+                elif count_current == count_best:
+                    print "You matched your high score of", count_best, ". Keep playing!"
+                else: 
+                    print "The current high score is", count_best 
                 playAgain = raw_input("Do you want to play again? Y or N")
                 if playAgain == "Y":
                     guessGame()
                 else:
+                    print "Thanks for playing! We hope you come back."
                     break
 
 guessGame()
